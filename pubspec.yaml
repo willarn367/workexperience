@@ -23,7 +23,8 @@ flutter:
 
   assets: 
     - images/gglogo.png
-
+    - assets/balls/
+    - assets/jerseys/
   fonts: 
       - family: Space Mission
         fonts:

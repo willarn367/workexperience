@@ -61,7 +61,6 @@ class HomeState extends State<TCs> {
             });
             await Future.delayed(const Duration(seconds: 3));
             Navigator.pop(
-                  // ignore: use_build_context_synchronously
                   context,
                   CupertinoPageRoute(builder: (context) => Signup())
               );

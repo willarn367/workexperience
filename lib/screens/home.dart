@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../screens/dashboard.dart';
 import '../screens/forgotmypassword.dart';
 import '../screens/signup.dart';
+import '../screens/home_screen.dart';
 
 class Home extends StatefulWidget {
   const Home ({super.key});
@@ -122,8 +123,9 @@ class HomeState extends State<Home> {
             obscureText: _secureText,
           ),
           SizedBox(height: 70,),
-          ElevatedButton(onPressed: (){ 
+          ElevatedButton(onPressed: ()async{ 
             setState(() {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Login in...", style: TextStyle(fontFamily: "Roboto",fontSize: 25,),), backgroundColor: Colors.black,duration: Duration(seconds: 2),));
               _nameController.text.isEmpty ? _nameValidate = false : _nameValidate = true;
               _emailController.text.isEmpty ? _emailValidate = false : _emailValidate = true;
               _passwordController.text.isEmpty ? _passwordValidate = false : _passwordValidate = true;
@@ -131,6 +133,10 @@ class HomeState extends State<Home> {
             print("Email: ${_nameController.text}");
             print("Email repeated: ${_emailController.text}");
             print("Password: ${_passwordController.text}");
+            await Future.delayed(const Duration(seconds: 3));
+            Navigator.push(
+                  context,
+                  CupertinoPageRoute(builder: (context) => HomeScreen()));
           }, 
             style: ElevatedButton.styleFrom(
               backgroundColor: Color.fromARGB(225, 20, 9, 118),

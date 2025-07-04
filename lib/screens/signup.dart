@@ -164,7 +164,7 @@ class HomeState extends State<Signup> {
           ]),
           
           SizedBox(height: 70,),
-          ElevatedButton(onPressed: _hasreadtc ?(){
+          ElevatedButton(onPressed: _hasreadtc ?()async{
             setState(() {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Creating Your Account...", style: TextStyle(fontFamily: "Roboto",fontSize: 25,),), backgroundColor: Colors.black,));
               _nameController.text.isEmpty ? _nameValidate = false : _nameValidate = true;
@@ -176,6 +176,10 @@ class HomeState extends State<Signup> {
             print("Age: ${_ageController.text}");
             print("Email: ${_emailController.text}");
             print("Password: ${_passwordController.text}");
+            await Future.delayed(const Duration(seconds: 3));
+            Navigator.pop(
+                  context,
+                  CupertinoPageRoute(builder: (context) => Home()));
           }:null, 
             style: ElevatedButton.styleFrom(
               backgroundColor: Color.fromARGB(225, 20, 9, 118),

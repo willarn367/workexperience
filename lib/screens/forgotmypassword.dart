@@ -169,7 +169,7 @@ class HomeState extends State<Forgotmypassword> {
           ElevatedButton(onPressed: _hasreadtc ?() async{
             setState(() {
               //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Creating Your Account...", style: TextStyle(fontFamily: "Roboto",fontSize: 25,),), backgroundColor: Colors.black,));
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Your new password is $_passwordController", style: TextStyle(fontFamily: "Roboto",fontSize: 25,),), backgroundColor: Colors.black,));
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Your new password is ${_passwordController.text}", style: TextStyle(fontFamily: "Roboto",fontSize: 25,),), backgroundColor: Colors.black,));
               _nameController.text.isEmpty ? _nameValidate = false : _nameValidate = true;
               _ageController.text.isEmpty ? _ageValidate = false : _ageValidate = true;
               _emailController.text.isEmpty ? _emailValidate = false : _emailValidate = true;

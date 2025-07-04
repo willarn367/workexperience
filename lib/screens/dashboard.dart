@@ -22,7 +22,6 @@ class Dashboard extends StatelessWidget {
                   Icons.keyboard_double_arrow_right_sharp, 
                   ),
                   onPressed: (){
-                    // TODO Figure out how to convert the Home() widget into a Route()
                     Navigator.push(
                       context,
                       CupertinoPageRoute(builder: (context) => Home())
