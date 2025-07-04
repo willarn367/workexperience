@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:workexperience/screens/cart_screen.dart';
 import 'package:workexperience/screens/home_screen.dart';
 import 'package:workexperience/screens/settings_screen.dart';
-
+import 'package:provider/provider.dart';
+import 'package:workexperience/providers/cart_provider.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  Widget build(BuildContext context) => MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => CartProvider()),
+    ],
+  
+    child: MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'APP',
       theme: ThemeData(
@@ -18,9 +23,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: HomePage(),
+    ),
     );
   }
-}
+
     
 class HomePage extends StatefulWidget {
   const HomePage({super.key });

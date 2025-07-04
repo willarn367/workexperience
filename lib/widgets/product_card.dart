@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import'../models/product.dart';
+import '../providers/cart_provider.dart';
 
 class ProductCard extends StatefulWidget {
 
@@ -14,6 +15,9 @@ class ProductCard extends StatefulWidget {
 class _ProductCardState extends State<ProductCard> {
 @override
 Widget build(BuildContext context) {
+
+final provider = CartProvider.of(context);
+
   return Container(
     width: MediaQuery.of(context).size.width / 2,
     decoration: BoxDecoration(
@@ -25,10 +29,15 @@ Widget build(BuildContext context) {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-        Icon(
-          Icons.shopping_cart_checkout_outlined,
+            GestureDetector(
+        onTap: () => provider.toggleCart(widget.product),
+        child: Icon(
+          provider.isExist(widget.product)
+              ? Icons.shopping_cart
+              : Icons.shopping_cart_outlined,
           color: Colors.blue,
           ),
+         )
         ],
        ),
        SizedBox(
