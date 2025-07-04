@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/rendering.dart';
 //import 'package:namer_app/screens/dashboard.dart';
-import 'package:namer_app/screens/home.dart';
-import 'package:namer_app/screens/signup.dart';
-import 'package:namer_app/screens/terms_and_conditions.dart';
+import '../screens/home.dart';
+import '../screens/signup.dart';
+import '../screens/terms_and_conditions.dart';
 
 class Forgotmypassword extends StatefulWidget {
-  const Forgotmypassword ({Key? key}) : super(key: key);
+  const Forgotmypassword ({super.key});
 
   @override
   State<StatefulWidget> createState() => HomeState();
@@ -169,7 +169,7 @@ class HomeState extends State<Forgotmypassword> {
           ElevatedButton(onPressed: _hasreadtc ?() async{
             setState(() {
               //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Creating Your Account...", style: TextStyle(fontFamily: "Roboto",fontSize: 25,),), backgroundColor: Colors.black,));
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Your new password is ${_passwordController}", style: TextStyle(fontFamily: "Roboto",fontSize: 25,),), backgroundColor: Colors.black,));
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Your new password is $_passwordController", style: TextStyle(fontFamily: "Roboto",fontSize: 25,),), backgroundColor: Colors.black,));
               _nameController.text.isEmpty ? _nameValidate = false : _nameValidate = true;
               _ageController.text.isEmpty ? _ageValidate = false : _ageValidate = true;
               _emailController.text.isEmpty ? _emailValidate = false : _emailValidate = true;
@@ -181,6 +181,7 @@ class HomeState extends State<Forgotmypassword> {
             print("Password: ${_passwordController.text}");
             await Future.delayed(const Duration(seconds: 3));
             Navigator.pop(
+                  // ignore: use_build_context_synchronously
                   context,
                   CupertinoPageRoute(builder: (context) => Signup())
               );

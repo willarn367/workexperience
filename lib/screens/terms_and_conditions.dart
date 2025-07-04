@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/rendering.dart';
-//import 'package:namer_app/screens/dashboard.dart';
-//import 'package:namer_app/screens/home.dart';
-import 'package:namer_app/screens/signup.dart';
+//import 'package:workexperience/screens/dashboard.dart';
+//import 'package:workexperience/screens/home.dart';
+import '../screens/signup.dart';
 
 class TCs extends StatefulWidget {
-  const TCs ({Key? key}) : super(key: key);
+  const TCs ({super.key});
 
   @override
   State<StatefulWidget> createState() => HomeState();
@@ -61,6 +61,7 @@ class HomeState extends State<TCs> {
             });
             await Future.delayed(const Duration(seconds: 3));
             Navigator.pop(
+                  // ignore: use_build_context_synchronously
                   context,
                   CupertinoPageRoute(builder: (context) => Signup())
               );

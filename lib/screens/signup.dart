@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 //import 'package:namer_app/screens/dashboard.dart';
-import 'package:namer_app/screens/home.dart';
-import 'package:namer_app/screens/terms_and_conditions.dart';
+import '../screens/home.dart';
+import '../screens/terms_and_conditions.dart';
 
 class Signup extends StatefulWidget {
-  const Signup ({Key? key}) : super(key: key);
+  const Signup ({super.key});
 
   @override
   State<StatefulWidget> createState() => HomeState();
