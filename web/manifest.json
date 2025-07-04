@@ -1,6 +1,6 @@
 {
-    "name": "workexperience",
-    "short_name": "workexperience",
+    "name": "flutter_application_2_example",
+    "short_name": "flutter_application_2_example",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
