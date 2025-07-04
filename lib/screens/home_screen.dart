@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
     );
   }
-  _buildAllProducts() => GridView.builder(
+  GridView _buildAllProducts() => GridView.builder(
     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
       crossAxisCount: 2,
       childAspectRatio: (100 / 140),
@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
         );
       }
     );
-    _buildTrending() => GridView.builder(
+    GridView _buildTrending() => GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: (100 / 140),
@@ -110,10 +110,18 @@ class _HomeScreenState extends State<HomeScreen> {
         itemCount: MyProducts.trendingList.length,
         itemBuilder: (context, index) {
           final trendingList = MyProducts.trendingList[index];
-          return ProductCard(product: trendingList);
+          return GestureDetector(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailsScreen(product: trendingList),
+              ),
+          ),
+          child: ProductCard(product: trendingList),
+        );
         },
         );
-         _buildNew() => GridView.builder(
+         GridView _buildNew() => GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: (100 / 140),
@@ -124,7 +132,16 @@ class _HomeScreenState extends State<HomeScreen> {
         itemCount: MyProducts.newList.length,
         itemBuilder: (context, index) {
           final newList = MyProducts.newList[index];
-          return ProductCard(product: newList);
+          return GestureDetector(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailsScreen(product: newList),
+              ),
+          ),
+          child: ProductCard(product: newList),
+        );
+        
         },
       );
 }
